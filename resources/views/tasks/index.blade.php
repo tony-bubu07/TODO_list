@@ -5,17 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- indexページ -->
     <title>ToDo App</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
-    <header>
-        <nav class="my-navbar">
-            <a class="my-navbar-brand" href="/">ToDo App</a>
-        </nav>
-    </header>
+    @extends('layout')
     <main>
+    @section('content')
         <div class="container">
             <div class="row">
                 <div class="col col-md-4">
@@ -40,7 +38,7 @@
                         <div class="panel-heading">タスク</div>
                         <div class="panel-body">
                             <div class="text-right">
-                                <a href="#" class="btn btn-default btn-block">
+                                <a href="{{ route('tasks.create', ['id' => $current_folder_id]) }}" class="btn btn-default btn-block">
                                     タスクを追加する
                                 </a>
                             </div>
@@ -62,7 +60,7 @@
                                         <span class="label {{ $task->status_class }}">{{ $task->status_label }}</span>
                                     </td>
                                     <td>{{ $task->formatted_due_date }}</td>
-                                    <td><a href="#">編集</a></td>
+                                    <td><a href="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}">編集</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -71,6 +69,7 @@
                 </div>
             </div>
         </div>
+        @endsection
     </main>
 </body>
 

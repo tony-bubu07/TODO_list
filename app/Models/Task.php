@@ -14,7 +14,7 @@ use Carbon\Carbon;
 
 class Task extends Model
 {
-    // use HasFactory;
+    use HasFactory;
 
     /**
      * 状態定義

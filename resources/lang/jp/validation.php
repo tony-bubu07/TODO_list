@@ -18,6 +18,7 @@ return [
     'active_url' => ':attribute は有効なURLではありません。',
     'after' => ':attribute は :date より後の日付である必要があります。',
     'after_or_equal' => ':attribute は :date 以降の日付である必要があります。',
+    'date' => ':attribute には日付を入力してください。',
     'alpha' => ':attribute は文字のみを含む必要があります。',
     'alpha_dash' => ':attribute は文字、数字、ダッシュ、アンダースコアのみを含む必要があります。',
     'alpha_num' => ':attribute は文字と数字のみを含む必要があります。',
@@ -158,6 +159,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'email' => 'メールアドレス',
+        'password' => 'パスワード',
+        'token' => 'トークン',
+    ],
 
 ];

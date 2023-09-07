@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class Folder extends Model
 {
-    // use HasFactory;
+    use HasFactory;
 
 
     public function tasks()
@@ -18,6 +18,14 @@ class Folder extends Model
         return $this->hasMany('App\Models\Task');
 
         // return $this->hasMany('App\Models\Task');を省略せずに書いた形
-        return $this->hasMany('App\Models\Task', 'folder_id', 'id');
+        // return $this->hasMany('App\Models\Task', 'folder_id', 'id');
+    }
+
+    /**
+     * このフォルダーが所属するユーザーを取得します。
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

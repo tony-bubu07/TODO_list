@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+// メール送信のためのファザード
+use App\Mail\ResetPassword;
+use Illuminate\Support\Facades\Mail;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -41,4 +45,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function folders()
+    {
+        // return $this->hasMany('App\Models\Folder');
+        return $this->hasMany(Folder::class);
+    }
+
 }
